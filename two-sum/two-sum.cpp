@@ -7,7 +7,7 @@ public:
         for(int i=0;i<nums.size();i++)
         {
             x = target - nums[i];
-            if(m.find(x) != m.end())
+            if(m.count(x))
             {
                 return{i,m[x]};
             }
