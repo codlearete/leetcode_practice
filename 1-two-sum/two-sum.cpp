@@ -2,15 +2,27 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         int n=nums.size();
-        unordered_map<int,int>m;
+        vector<pair<int,int>>vec;
 
         for(int i=0;i<n;i++){
-            int x=nums[i];
-            int y=target-x;
-            if(m.find(y) != m.end()){
-                return {i,m[y]};
+            vec.push_back({nums[i],i});
+            // vec[i]=make_pair(nums[i],i);
+        }
+
+        sort(vec.begin(),vec.end());
+
+        int s=0,e=n-1;
+
+        while(s<e){
+            if(vec[s].first+vec[e].first == target){
+                return {vec[s].second,vec[e].second};
             }
-            m[nums[i]]=i;
+            else if(vec[s].first+vec[e].first > target){
+                e--;
+            }
+            else{
+                s++;
+            }
         }
 
         return {-1,-1};
