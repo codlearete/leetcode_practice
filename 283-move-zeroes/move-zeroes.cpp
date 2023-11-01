@@ -12,13 +12,10 @@ public:
                 nums[j]=nums[i];
                 j++;
             }
-            else{
-                count++;
-            }
 
         }
 
-        while(count--){
+        while(j<n){
             nums[j++]=0;
         }
 
